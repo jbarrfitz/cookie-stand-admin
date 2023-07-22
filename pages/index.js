@@ -27,55 +27,85 @@ export default function Home() {
         <title>Cookie Stand Admin</title>
       </Head>
       <header class='bg-green-500'>
-        <h1 class='px-8 p-8 text-5xl'>Cookie Stand Admin</h1>
+        <h1 class='p-8 text-5xl'>Cookie Stand Admin</h1>
       </header>
       <main class='flex flex-col items-center'>
-        <div class='flex flex-col justify-center my-8 mx-4 items-center w-4/6 bg-green-300'>
-          <h2 class='text-3xl'>Create Cookie Stand</h2>
-          <div class='flex flex-row w-4/6 items-stretch'>
-            <form onSubmit={handleSubmit}>
-              <div>
-                <label htmlFor='location'>Location</label>
-                <input
-                  type='text'
-                  name='location'
-                  value={standFormData.location}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div>
-                <label htmlFor='minCus'>Minimum Customers per Hour</label>
-                <label htmlFor='maxCus'>Maximum Customers per Hour</label>
-                <label htmlFor='avgCookies'>Average Cookies per Sale</label>
-              </div>
-              <div>
-                <input
-                  type='number'
-                  name='minCus'
-                  value={standFormData.minCus}
-                  onChange={handleInputChange}
-                />
-                <input
-                  type='number'
-                  name='maxCus'
-                  value={standFormData.maxCus}
-                  onChange={handleInputChange}
-                />
-                <input
-                  type='number'
-                  name='avgCookies'
-                  value={standFormData.minCus}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <button>Create</button>
-            </form>
+        <form
+          class='w-1/2 p-2 m-auto rounded-md border-2 border-black bg-green-300 mt-8'
+          onSubmit={handleSubmit}
+        >
+          <h2 className='flex items-center justify-center text-2xl pt-2 pb-4 font-semibold'>
+            Create Cookie Stand
+          </h2>
+          <div class='flex flex-row align-middle m-8'>
+            <label class='text-xl text-center font-semibold' htmlFor='location'>
+              Location
+            </label>
+            <input
+              class='text-xl w-full mx-2 pl-1'
+              type='text'
+              name='location'
+              value={standFormData.location}
+              onChange={handleInputChange}
+            />
           </div>
-        </div>
-        <h3>Report Table Coming Soon . . .</h3>
+          <div class='flex flex-1 space-x-4 items-center justify-between'>
+            <div class='flex flex-col align-middle'>
+              <label class='text-xl text-center font-semibold' htmlFor='minCus'>
+                Minimum Customers
+                <br />
+                per Hour
+              </label>
+              <input
+                type='number'
+                name='minCus'
+                value={standFormData.minCus}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div class='flex flex-1 flex-col align-middle'>
+              <label class='text-xl text-center font-semibold' htmlFor='maxCus'>
+                Maximum Customers
+                <br />
+                per Hour
+              </label>
+              <input
+                type='number'
+                name='maxCus'
+                value={standFormData.maxCus}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div class='flex flex-1 flex-col align-middle'>
+              <label
+                class='text-xl text-center font-semibold'
+                htmlFor='avgCookies'
+              >
+                Average Cookies
+                <br />
+                per Sale
+              </label>
+              <input
+                type='number'
+                name='avgCookies'
+                value={standFormData.minCus}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div class='flex-1'>
+              <button class='text-xl font-semibold w-full h-20 block bg-green-500'>
+                Create
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <h3 class='text-3xl font-semibold my-8'>
+          Report Table Coming Soon . . .
+        </h3>
       </main>
-      <footer class='bg-green-400'>
-        <h3 class='px-8 p-8 text-3xl'>&copy;2023</h3>
+      <footer class='bg-green-500'>
+        <h3 class='p-8 text-3xl'>&copy;2023</h3>
       </footer>
     </>
   );

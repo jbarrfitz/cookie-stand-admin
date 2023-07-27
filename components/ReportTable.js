@@ -5,7 +5,7 @@ export default function ReportTable({ standData }) {
   const tableHeaders = ['Location', ...hours, 'Totals'];
 
   if (!standData || standData.length === 0) {
-    return <h3>No data to display.</h3>;
+    return <h3>No Cookie Stands Available</h3>;
   }
 
   return (

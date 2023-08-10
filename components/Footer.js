@@ -1,4 +1,8 @@
-export default function Footer(standData) {
+import { useStand } from "@/contexts/stand";
+
+export default function Footer() {
+  const { standData } = useStand();
+
   return (
     <footer className="w-full bg-green-500">
       <h3 className="p-2 text-center">

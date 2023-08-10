@@ -3,13 +3,8 @@ import jwt from "jsonwebtoken";
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 const tokenUrl = baseUrl + "/api/token/";
 
-const AuthContext = createContext({
-  tokens: undefined,
-  user: undefined,
-  error: undefined,
-  login: undefined,
-  logout: undefined,
-});
+// @ts-ignore
+const AuthContext = createContext();
 
 export function useAuth() {
   const auth = useContext(AuthContext);

@@ -1,16 +1,20 @@
-const handleSubmit = (e) => {
-  e.preventDefault();
-  let newStand = {
-    location: e.target.location.value,
-    minCus: e.target.minCus.value,
-    maxCus: e.target.maxCus.value,
-    avgCookies: e.target.maxCus.value,
-    hourlySales: hourlySales,
-  };
-  setStandData((prevStandData) => [...prevStandData, newStand]);
-};
+import { useAuth } from '@/contexts/auth';
 
 export default function CreateForm() {
+  const { user } = useAuth();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let newStand = {
+      location: e.target.location.value,
+      minCus: e.target.minCus.value,
+      maxCus: e.target.maxCus.value,
+      avgCookies: e.target.maxCus.value,
+      owner: user.id,
+    };
+    setStandData((prevStandData) => [...prevStandData, newStand]);
+  };
+
   return (
     <form
       className='w-1/2 p-2 mx-auto mb-4 rounded-md border-2 border-black bg-green-200 mt-8'
@@ -58,7 +62,7 @@ export default function CreateForm() {
           >
             Average Cookies per Sale
           </label>
-          <input className='w-4/5' type='number' name='avgCookies' />
+          <input className='w-4/5' type='number' step='0.1' name='avgCookies' />
         </div>
       </div>
     </form>

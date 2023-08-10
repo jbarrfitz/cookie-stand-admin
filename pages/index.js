@@ -47,7 +47,7 @@ export default function Home() {
       <Header />
       <main className='flex flex-col items-center'>
         {user ? (
-          <CookieStandAdmin data={standData} />
+          <CookieStandAdmin data={standData} update={setStandData} />
         ) : (
           <LoginForm onLogin={login} />
         )}

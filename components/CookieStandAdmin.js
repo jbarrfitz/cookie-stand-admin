@@ -1,5 +1,5 @@
-import CreateForm from './CreateForm';
-import ReportTable from './ReportTable';
+import CreateForm from "./CreateForm";
+import ReportTable from "./ReportTable";
 
 export default function CookieStandAdmin(standData) {
   return (

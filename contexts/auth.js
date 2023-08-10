@@ -1,14 +1,14 @@
-import { createContext, useContext, useState } from 'react';
-import jwt from 'jsonwebtoken';
+import { createContext, useContext, useState } from "react";
+import jwt from "jsonwebtoken";
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
-const tokenUrl = baseUrl + '/api/token/';
+const tokenUrl = baseUrl + "/api/token/";
 
 const AuthContext = createContext();
 
 export function useAuth() {
   const auth = useContext(AuthContext);
   if (!auth) {
-    throw new Error('You forgot AuthProvider!');
+    throw new Error("You forgot AuthProvider!");
   }
   return auth;
 }
@@ -25,9 +25,9 @@ export function AuthProvider(props) {
     // const response = await axios.post(tokenUrl, { username, password });
 
     const options = {
-      method: 'POST',
+      method: "POST",
       body: JSON.stringify({ username, password }),
-      headers: { 'Content-Type': 'application/json' },
+      headers: { "Content-Type": "application/json" },
     };
 
     const response = await fetch(tokenUrl, options);
@@ -56,7 +56,5 @@ export function AuthProvider(props) {
     setState((prevState) => ({ ...prevState, ...newState }));
   }
 
-  return (
-    <AuthContext.Provider value={state}>{props.children}</AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={state}>{props.children}</AuthContext.Provider>;
 }

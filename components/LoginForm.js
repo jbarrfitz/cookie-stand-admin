@@ -12,20 +12,23 @@ export default function LoginForm({ onLogin }) {
 
   return (
     <>
-      <form className="flex flex-col w-1/2 items-center bg-green-200 m-2 p-4 rounded-sm" onSubmit={handleSubmit}>
-        <label className="w-full text-center uppercase text-xl font-bold my-4" htmlFor="username">
+      <form
+        className="flex flex-col items-center w-1/2 p-4 m-2 mx-auto bg-green-200 rounded-sm"
+        onSubmit={handleSubmit}
+      >
+        <label className="w-full my-4 text-xl font-bold text-center uppercase" htmlFor="username">
           User Name
         </label>
-        <input className="w-full text-center text-xl my-4 p-2" type="text" name="username" id="username" />
-        <label className="w-full text-center uppercase text-xl font-bold my-4" htmlFor="password">
+        <input className="w-full p-2 my-4 text-xl text-center" type="text" name="username" id="username" />
+        <label className="w-full my-4 text-xl font-bold text-center uppercase" htmlFor="password">
           Password
         </label>
-        <input className="w-full text-center text-xl my-4 p-2" type="password" name="password" id="password" />
-        <button className="bg-green-600 w-full text-xl uppercase p-2 my-6 font-bold" type="submit">
+        <input className="w-full p-2 my-4 text-xl text-center" type="password" name="password" id="password" />
+        {error && <Alert type="error">{error}</Alert>}
+        <button className="w-full p-2 my-6 text-xl font-bold uppercase bg-green-600" type="submit">
           Log In
         </button>
       </form>
-      {error && <Alert type="error">{error}</Alert>}
     </>
   );
 }

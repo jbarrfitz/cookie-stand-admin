@@ -29,10 +29,10 @@ export default function CreateForm() {
           <label className="mb-2 text-sm font-semibold text-center uppercase" htmlFor="location">
             Add Location
           </label>
-          <input className="pl-1 mx-2 text-lg" type="text" name="location" />
+          <input className="p-2 mx-2 text-lg" type="text" name="location" placeholder="Cookie Stand Location" />
         </div>
         <div className="w-1/3 p-4 flex-2">
-          <button className="w-full px-4 py-2 font-semibold uppercase bg-green-600">Create Stand</button>
+          <button className="w-full px-4 py-2 font-semibold uppercase bg-green-600 rounded ">Create Stand</button>
         </div>
       </div>
       <div className="flex items-center justify-between flex-1 gap-4 p-4 space-x-4 bg-green-200">
@@ -40,19 +40,19 @@ export default function CreateForm() {
           <label className="my-4 text-sm font-semibold text-center uppercase" htmlFor="minCus">
             Minimum Customers per Hour
           </label>
-          <input className="w-4/5" type="number" name="minCus" min={0} defaultValue={0} />
+          <input className="w-4/5 p-2" type="number" name="minCus" min={0} defaultValue={0} />
         </div>
         <div className="flex flex-col items-center flex-1 p-2 align-middle bg-green-200">
           <label className="my-4 text-sm font-semibold text-center uppercase" htmlFor="maxCus">
             Maximum Customers per Hour
           </label>
-          <input className="w-4/5" type="number" name="maxCus" min={0} defaultValue={0} />
+          <input className="w-4/5 p-2" type="number" name="maxCus" min={0} defaultValue={0} />
         </div>
         <div className="flex flex-col items-center flex-1 p-2 align-middle bg-green-200">
           <label className="my-4 text-sm font-semibold text-center uppercase" htmlFor="avgCookies">
             Average Cookies per Sale
           </label>
-          <input className="w-4/5" type="number" step="0.1" name="avgCookies" min={0} defaultValue={1} />
+          <input className="w-4/5 p-2" type="number" step="0.1" name="avgCookies" min={0} defaultValue={1} />
         </div>
       </div>
     </form>

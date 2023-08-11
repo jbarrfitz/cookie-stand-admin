@@ -14,7 +14,7 @@ export default function ReportTable() {
   const handleDelete = (event, dataItem) => {};
 
   return (
-    <table className="w-3/4 mb-8">
+    <table className="w-3/4 mx-auto mb-8">
       <thead>
         <tr className="bg-green-600">
           {tableHeaders.map((header, index) => (

@@ -14,15 +14,8 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>Cookie Stand Admin</title>
-      </Head>
-      <Header />
-      <main className="flex flex-col items-center">
-        {/* {user ? <CookieStandAdmin data={standData} update={setStandData} /> : <LoginForm onLogin={login} />} */}
-        <CookieStandAdmin />
-      </main>
-      <Footer />
+      {user ? <CookieStandAdmin /> : <LoginForm onLogin={login} />}
+      {/* <CookieStandAdmin /> */}
     </>
   );
 }

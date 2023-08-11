@@ -1,63 +1,65 @@
 import { useAuth } from '@/contexts/auth';
+import useResource from '@/hooks/useResource';
 
 export default function CreateForm() {
   const { user } = useAuth();
+  const { createResource } = useResource();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     let newStand = {
       location: e.target.location.value,
-      minCus: e.target.minCus.value,
-      maxCus: e.target.maxCus.value,
-      avgCookies: e.target.maxCus.value,
+      minCus: Number.parseInt(e.target.minCus.value),
+      maxCus: Number.parseInt(e.target.maxCus.value),
+      avgCookies: Number.parseFloat(e.target.avgCookies.value),
       owner: user.id,
     };
-    setStandData((prevStandData) => [...prevStandData, newStand]);
+    createResource(newStand);
   };
 
   return (
     <form
-      className='w-1/2 p-2 mx-auto mb-4 rounded-md border-2 border-black bg-green-200 mt-8'
+      className='w-1/2 p-2 mx-auto mt-8 mb-4 bg-green-200 border-2 border-black rounded-md'
       onSubmit={handleSubmit}
     >
-      <div className='flex flex-row w-full align-middle items-center m-2 p-2'>
+      <div className='flex flex-row items-center w-full p-2 m-2 align-middle'>
         <div className='flex flex-col w-2/3 align-middle'>
           <label
-            className='text-center font-semibold uppercase mb-2 text-sm'
+            className='mb-2 text-sm font-semibold text-center uppercase'
             htmlFor='location'
           >
             Add Location
           </label>
-          <input className='text-lg mx-2 pl-1' type='text' name='location' />
+          <input className='pl-1 mx-2 text-lg' type='text' name='location' />
         </div>
-        <div className='flex-2 w-1/3 p-4'>
-          <button className='font-semibold uppercase px-4 py-2 w-full bg-green-600'>
+        <div className='w-1/3 p-4 flex-2'>
+          <button className='w-full px-4 py-2 font-semibold uppercase bg-green-600'>
             Create Stand
           </button>
         </div>
       </div>
-      <div className='flex flex-1 space-x-4 items-center gap-4 p-4 justify-between bg-green-200'>
-        <div className='flex flex-col items-center align-middle p-2 bg-green-200'>
+      <div className='flex items-center justify-between flex-1 gap-4 p-4 space-x-4 bg-green-200'>
+        <div className='flex flex-col items-center p-2 align-middle bg-green-200'>
           <label
-            className='text-center text-sm font-semibold uppercase my-4'
+            className='my-4 text-sm font-semibold text-center uppercase'
             htmlFor='minCus'
           >
             Minimum Customers per Hour
           </label>
           <input className='w-4/5' type='number' name='minCus' />
         </div>
-        <div className='flex flex-1 flex-col items-center align-middle p-2 bg-green-200'>
+        <div className='flex flex-col items-center flex-1 p-2 align-middle bg-green-200'>
           <label
-            className='text-center text-sm font-semibold uppercase my-4'
+            className='my-4 text-sm font-semibold text-center uppercase'
             htmlFor='maxCus'
           >
             Maximum Customers per Hour
           </label>
           <input className='w-4/5' type='number' name='maxCus' />
         </div>
-        <div className='flex flex-1 flex-col items-center align-middle p-2 bg-green-200'>
+        <div className='flex flex-col items-center flex-1 p-2 align-middle bg-green-200'>
           <label
-            className='text-center text-sm font-semibold uppercase my-4'
+            className='my-4 text-sm font-semibold text-center uppercase'
             htmlFor='avgCookies'
           >
             Average Cookies per Sale

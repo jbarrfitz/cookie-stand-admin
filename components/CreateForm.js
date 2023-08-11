@@ -9,9 +9,9 @@ export default function CreateForm() {
     e.preventDefault();
     let newStand = {
       location: e.target.location.value,
-      minCus: Number.parseInt(e.target.minCus.value),
-      maxCus: Number.parseInt(e.target.maxCus.value),
-      avgCookies: Number.parseFloat(e.target.avgCookies.value),
+      min_customers_per_hour: Number.parseInt(e.target.minCus.value),
+      max_customers_per_hour: Number.parseInt(e.target.maxCus.value),
+      avg_cookies_per_sale: Number.parseFloat(e.target.avgCookies.value),
       owner: user.id,
     };
     createResource(newStand);

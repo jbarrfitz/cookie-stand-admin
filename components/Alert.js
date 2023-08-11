@@ -1,16 +1,7 @@
-const mapTypeToColor = {
-  info: "blue",
-  success: "green",
-  warning: "yellow",
-  error: "red",
-};
-
-export default function Alert({ type = "info", children }) {
+export default function Alert({ type = 'info', children }) {
   return (
-    <div
-      className={`mx-auto flex flex-col w-full items-center bg-${mapTypeToColor[type]}-500 m-2 p-4 text-white rounded-sm`}
-    >
-      <h3 className="p-2 text-center">{children}</h3>
+    <div className='flex flex-col items-center w-full p-4 m-2 mx-auto text-white bg-red-500 rounded-sm'>
+      <h3 className='p-2 text-center'>{children}</h3>
     </div>
   );
 }

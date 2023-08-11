@@ -3,7 +3,6 @@ import jwt from "jsonwebtoken";
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 const tokenUrl = baseUrl + "/api/token/";
 
-// @ts-ignore
 const AuthContext = createContext();
 
 export function useAuth() {
@@ -41,16 +40,18 @@ export function AuthProvider(props) {
        * complete: return an object with the decoded payload and header
        * see: https://www.npmjs.com/package/jsonwebtoken
        **/
-      const decodedAccess = jwt.decode(data.access, { complete: true, json: true });
+      const decodedAccess = jwt.decode(data.access);
 
-      if (!decodedAccess.payload) throw new Error("Unable to decode user, they may not exist");
-      if (!decodedAccess.payload["user_id"]) throw new Error("Unable to find user id, they may not exist");
+      console.warn(decodedAccess);
+
+      if (!decodedAccess) throw new Error("Unable to decode user, they may not exist");
+      if (!decodedAccess.user_id) throw new Error("Unable to find user id, they may not exist");
 
       // TODO: finish implementing auth decoder
       const user = {
-        username: decodedAccess.payload.username,
-        email: decodedAccess.payload.email,
-        id: decodedAccess.payload.user_id,
+        username: decodedAccess.username,
+        email: decodedAccess.email,
+        id: decodedAccess.user_id,
       };
 
       const newState = {

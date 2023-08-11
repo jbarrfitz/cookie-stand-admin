@@ -1,9 +1,7 @@
 import { useAuth } from "@/contexts/auth";
 
 export default function Header() {
-  // const { logout } = useAuth();
-  const user = { id: "id", username: "foo" };
-  const logout = () => console.log("NoOp: Log Out");
+  const { user, logout } = useAuth();
 
   const handleSignOut = async (e) => {
     e.preventDefault();

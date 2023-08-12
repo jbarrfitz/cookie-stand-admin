@@ -1,11 +1,11 @@
 import CreateForm from './CreateForm';
 import ReportTable from './ReportTable';
 
-export default function CookieStandAdmin(standData) {
+export default function CookieStandAdmin() {
   return (
     <>
       <CreateForm />
-      <ReportTable standData={standData} />
+      <ReportTable />
     </>
   );
 }

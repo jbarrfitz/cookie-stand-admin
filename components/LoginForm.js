@@ -47,7 +47,12 @@ export default function LoginForm({ onLogin, onChangeMode }) {
           Log In
         </button>
       </form>
-      <button onClick={handleChangeMode}>Sign up!</button>
+      <button
+        className='self-center p-2 m-4 bg-gray-200 rounded-md'
+        onClick={handleChangeMode}
+      >
+        Sign up!
+      </button>
     </div>
   );
 }

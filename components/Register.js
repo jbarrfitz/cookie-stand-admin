@@ -22,7 +22,7 @@ export default function Register({ onRegister, onChangeMode }) {
   }
 
   return (
-    <div>
+    <div className='flex flex-col justify-center'>
       <form
         className='flex flex-col items-center w-1/2 p-4 m-auto mt-2 bg-green-200 rounded-sm'
         onSubmit={handleSubmit}
@@ -34,7 +34,7 @@ export default function Register({ onRegister, onChangeMode }) {
           Username
         </label>
         <input
-          className='w-full p-2 my-4 text-xl text-center'
+          className='w-full p-2 my-2 text-xl text-center'
           type='text'
           name='username'
           id='username'
@@ -42,13 +42,13 @@ export default function Register({ onRegister, onChangeMode }) {
           onChange={(e) => setUserName(e.target.value)}
         />
         <label
-          className='w-full my-4 text-xl font-bold text-center uppercase'
+          className='w-full my-2 text-xl font-bold text-center uppercase'
           htmlFor='email'
         >
           Email
         </label>
         <input
-          className='w-full p-2 my-4 text-xl text-center'
+          className='w-full p-2 my-2 text-xl text-center'
           type='email'
           name='email'
           id='email'
@@ -56,13 +56,13 @@ export default function Register({ onRegister, onChangeMode }) {
           onChange={(e) => setEmail(e.target.value)}
         />
         <label
-          className='w-full my-4 text-xl font-bold text-center uppercase'
+          className='w-full my-2 text-xl font-bold text-center uppercase'
           htmlFor='password'
         >
           Password
         </label>
         <input
-          className='w-full p-2 my-4 text-xl text-center'
+          className='w-full p-2 my-2 text-xl text-center'
           type='password'
           name='password'
           id='password'
@@ -70,13 +70,13 @@ export default function Register({ onRegister, onChangeMode }) {
           onChange={(e) => setPassword(e.target.value)}
         />
         <label
-          className='w-full my-4 text-xl font-bold text-center uppercase'
+          className='w-full my-2 text-xl font-bold text-center uppercase'
           htmlFor='confirmPassword'
         >
           Confirm Password
         </label>
         <input
-          className='w-full p-2 my-4 text-xl text-center'
+          className='w-full p-2 my-2 text-xl text-center'
           type='password'
           name='confirmPassword'
           id='confirmPassword'
@@ -85,13 +85,18 @@ export default function Register({ onRegister, onChangeMode }) {
         />
         {errorMessage && <p className='text-red-500'>{errorMessage}</p>}
         <button
-          className='w-full p-2 my-6 text-xl font-bold uppercase bg-green-600'
+          className='w-full p-2 my-4 text-xl font-bold uppercase bg-green-600'
           type='submit'
         >
           Register
         </button>
       </form>
-      <button onClick={handleChangeMode}>Login</button>
+      <button
+        className='self-center p-2 m-2 bg-gray-200 rounded-md'
+        onClick={handleChangeMode}
+      >
+        Login
+      </button>
     </div>
   );
 }

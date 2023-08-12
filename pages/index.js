@@ -3,10 +3,10 @@ import { useAuth } from '@/contexts/auth';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CookieStandAdmin from '@/components/CookieStandAdmin';
-import LoginForm from '@/components/LoginForm';
+import Login from '@/components/Login';
 
 export default function Home() {
-  const { user, login } = useAuth();
+  const { user, login, register } = useAuth();
 
   return (
     <>
@@ -17,7 +17,11 @@ export default function Home() {
       <main className='flex flex-col items-center min-h-screen'>
         <Header />
         <div className='flex flex-col flex-1 w-full mx-auto'>
-          {user ? <CookieStandAdmin /> : <LoginForm onLogin={login} />}
+          {user ? (
+            <CookieStandAdmin />
+          ) : (
+            <Login onLogin={login} onRegister={register} />
+          )}
         </div>
         <Footer />
       </main>

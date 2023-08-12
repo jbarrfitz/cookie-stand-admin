@@ -1,9 +1,13 @@
-export default function Footer(standData) {
+import useResource from '@/hooks/useResource';
+
+export default function Footer() {
+  const { resources } = useResource();
+
   return (
     <footer className='w-full bg-green-500'>
       <h3 className='p-2 text-center'>
-        {standData.length > 0
-          ? `${standData.length} Locations Worldwide`
+        {resources.length > 0
+          ? `${resources.length} Locations Worldwide`
           : 'No locations to report'}
       </h3>
     </footer>

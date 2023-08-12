@@ -52,7 +52,7 @@ export default function Home() {
           <LoginForm onLogin={login} />
         )}
       </main>
-      <Footer standData={standData} />
+      <Footer />
     </>
   );
 }

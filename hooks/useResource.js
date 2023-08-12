@@ -9,7 +9,7 @@ import { useAuth } from '../contexts/auth';
 export default function useResource() {
   const { tokens, logout } = useAuth();
 
-  const { data, error, mutate } = useSWR([apiUrl, tokens], fetchResource);
+  const { data = [], error, mutate } = useSWR([apiUrl, tokens], fetchResource);
 
   async function fetchResource(url) {
     if (!tokens) {

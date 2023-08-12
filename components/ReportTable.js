@@ -13,10 +13,10 @@ export default function ReportTable() {
   };
 
   if (!resources || resources.length === 0) {
-    return <h3>No Cookie Stands Available</h3>;
+    return <h3 className='text-center'>No Cookie Stands Available</h3>;
   }
   return (
-    <table className='mb-8'>
+    <table className='w-3/4 mx-auto'>
       <thead>
         <tr className='bg-green-600'>
           {tableHeaders.map((header, index) => (
@@ -30,12 +30,14 @@ export default function ReportTable() {
         {resources.map((dataItem, index) => (
           <tr key={index} className='even:bg-green-400 odd:bg-green-200'>
             <td className='p-2 border'>
-              <span>{dataItem.location}</span>
-              <TrashIcon
-                onClick={(e) => handleDelete(e, dataItem)}
-                color='red'
-                className='self-center w-5 h-5 text-red-500'
-              />
+              <span>
+                {dataItem.location}
+                <TrashIcon
+                  onClick={(e) => handleDelete(e, dataItem)}
+                  color='red'
+                  className='self-center w-5 h-5 text-red-500'
+                />
+              </span>
             </td>
             {dataItem.hourly_sales.map((sale, index) => (
               <td key={index} className='p-2 border'>

@@ -19,7 +19,7 @@ export default function CreateForm() {
 
   return (
     <form
-      className='w-1/2 p-2 mx-auto mt-8 mb-4 bg-green-200 border-2 border-green-500 rounded-md'
+      className='w-3/4 p-2 mx-auto mt-8 mb-4 bg-green-200 border-2 border-green-500 rounded-md'
       onSubmit={handleSubmit}
     >
       <div className='flex flex-row items-center w-full p-2 m-2 align-middle'>

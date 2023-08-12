@@ -13,11 +13,14 @@ export default function Home() {
       <Head>
         <title>Cookie Stand Admin</title>
       </Head>
-      <Header />
-      <main className='flex flex-col items-center'>
-        {user ? <CookieStandAdmin /> : <LoginForm onLogin={login} />}
+
+      <main className='flex flex-col items-center min-h-screen'>
+        <Header />
+        <div className='flex flex-col flex-1 w-full mx-auto'>
+          {user ? <CookieStandAdmin /> : <LoginForm onLogin={login} />}
+        </div>
+        <Footer />
       </main>
-      <Footer />
     </>
   );
 }
